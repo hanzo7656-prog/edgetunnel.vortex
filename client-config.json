@@ -1,0 +1,37 @@
+{
+  "inbounds": [
+    {
+      "port": 4080,
+      "protocol": "socks",
+      "settings": { "auth": "noauth", "udp": true }
+    },
+    {
+      "port": 4081,
+      "protocol": "http"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "edgetunnel-vortex-orip.vercel.app",
+            "port": 443,
+            "users": [
+              {
+                "id": "f9e8d7c6-b5a4-3210-9876-543210fedcba",
+                "encryption": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": { "path": "/?ed=2048" }
+      }
+    }
+  ]
+}
